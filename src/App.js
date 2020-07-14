@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Search from './component/Search.jsx'
 import Results from './component/Results.jsx'
+import Popup from './component/Popup'
 import axios from 'axios'
 
 export default function App() {
@@ -65,7 +66,11 @@ export default function App() {
             <main>
                 <Search handleInput = {handleInput}
                 search={search}/>
-                <Results results={state.results}/>
+                <Results results={state.results}
+                openPopup={openPopup}/>
+                {(typeof state.selected.Title !== "undefined") ? <Popup selected={state.selected}
+                closePopup={closePopup}/>
+                : false}
             </main>
         </div>
     )
