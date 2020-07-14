@@ -1,11 +1,13 @@
-import React from 'react'
+import React from 'react';
+import Result from './Result.jsx'
 
 function Results({ results }) {
+  
     return (
         <section className="results">
-            {results.map(result => {
-                <Result result={result}/>
-            })}
+           {results.map(result => (
+               <Result result={result}/>
+           ))}
         </section>
     )
 }

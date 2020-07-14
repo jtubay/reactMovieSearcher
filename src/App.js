@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Search from './component/Search.jsx'
+import Results from './component/Results.jsx'
 import axios from 'axios'
 
 export default function App() {
@@ -8,6 +9,7 @@ export default function App() {
         results: [],
         selected: {}
     })
+    
     const apiURL = "https://www.omdbapi.com/?apikey=trilogy";
 
     const search = e => {
@@ -45,6 +47,7 @@ export default function App() {
             <main>
                 <Search handleInput = {handleInput}
                 search={search}/>
+                <Results results={state.results}/>
             </main>
         </div>
     )
