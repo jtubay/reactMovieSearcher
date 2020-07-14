@@ -38,6 +38,24 @@ export default function App() {
 
     }
 
+    const openPopup = id => {
+        axios(`${apiURL}&i=${id}`)
+            .then(({ data }) => {
+                let result = data;
+                setState(prevState => {
+                    return { ...prevState, selected: result }
+                })
+            })
+    }
+
+    const closePopup = () => {
+        setState(prevState => {
+            return{
+                ...prevState, selected: {}
+            }
+        })
+    }
+
     return(
         
         <div>
