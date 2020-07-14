@@ -13,8 +13,13 @@ export default function App() {
     const search = e => {
         if(e.key === "Enter"){
             axios(`${apiURL}&s=${state.s}` )
-                .then(data => {
-                    console.log(data)
+                .then(({data}) => {
+                    let results = data.Search;
+
+                    setState(prevState => {
+                        return { ...prevState, results: results}
+                    })
+
                 })
         }
 
